@@ -1,0 +1,113 @@
+{
+  name: "Nouveau",
+  uid: "12345678",
+  level: "50",
+  rank: "Heroic",
+  code: "FF-CODE",
+  password: "monpass",
+  tiktok: "@nouveau",
+  whatsapp: "+22700000000",
+  image: "images/photo.jpg"
+},
+
+
+
+
+
+kawaki.jpg
+shadow.jpg
+darkaura.jpg
+
+
+update 
+{
+  name: "KAWAKI227",
+
+  uid: "66778899",
+
+  level: "75",
+
+  rank: "Heroic",
+
+  code: "FF-POWER-777",
+
+  password: "kawaki777",
+
+  tiktok: "@kawaki227",
+
+  whatsapp: "+22700000000",
+
+  image: "https://files.catbox.moe/n1x36o.jpg",
+
+  description: `
+🔥 Joueur ultra pro Free Fire.
+
+⚡ Expert Rush & Headshot.
+
+🏆 Heroic Player.
+
+💀 Aura Hacker MAX.
+
+🎯 Membre officiel FF-FAMILLi.
+`
+}
+
+
+
+
+Puis dans ton script.js trouve ceci 👇
+
+<p>📞 WhatsApp : ${player.whatsapp}</p>
+
+______________________________
+Et ajoute juste EN DESSOUS 👇
+
+
+<p class="description">
+  ${player.description}
+</p>
+
+
+
+
+
+Puis ajoute ceci dans ton style.css 👇
+
+/* DESCRIPTION */
+.description{
+
+  margin-top:12px;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  background:rgba(255,0,60,0.08);
+
+  border:1px solid #ff003c;
+
+  color:#ffcccc;
+
+  font-size:0.9rem;
+
+  line-height:1.5;
+
+  box-shadow:
+    0 0 10px rgba(255,0,60,0.2);
+
+}
+
+
+
+
+{
+    name: "꧁༒Majisty༒꧂",
+    uid: "10153627019",
+    level: "56",
+    rank: "Heroic",
+    code: "#FFHUDT6O3jHFZnNRPo7eO",
+    password: "9669",
+    tiktok: "https://www.tiktok.com/@7.anass.2.0",
+    whatsapp: "+22777028748",
+    image: "https://files.catbox.moe/buil00.jpg"
+  }

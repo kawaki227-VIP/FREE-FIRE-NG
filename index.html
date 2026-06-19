@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>FREE-FIRE-GAMER</title>
+
+  <!-- PREVIEW WHATSAPP -->
+  <meta property="og:title"
+        content="FREE-FIRE-GAMER 🔥">
+
+  <meta property="og:description"
+        content="FF AURA 😎">
+
+  <meta property="og:image"
+        content="https://files.catbox.moe/n1x36o.jpg">
+
+  <meta property="og:type"
+        content="website">
+
+  <meta property="og:url"
+        content="https://tonsite.com">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card"
+        content="summary_large_image">
+
+  <meta name="twitter:title"
+        content="FREE-FIRE-GAMER 🔥">
+
+  <meta name="twitter:description"
+        content="FF AURA 😎">
+
+  <meta name="twitter:image"
+        content="https://files.catbox.moe/n1x36o.jpg">
+
+  <!-- CSS -->
+  <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+  <!-- MATRIX -->
+  <canvas id="matrix"></canvas>
+
+  <!-- LOADER -->
+  <div id="loader">
+
+    <div class="loader-bg"></div>
+
+    <h1>FREE-FIRE-GAMER Loading...</h1>
+
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="background"></div>
+
+  <!-- HEADER -->
+  <header>
+
+    <h1>🔥 FREE-FIRE-GAMER 🔥</h1>
+
+    <p>By kawaki227</p>
+
+  </header>
+
+  <!-- BUTTONS -->
+  <div class="top-buttons">
+
+    <a href="https://chat.whatsapp.com/Imv3rWbH2YYLMZXoFzSojh"
+       target="_blank"
+       class="btn">
+
+       📢 Groupe WhatsApp
+
+    </a>
+
+    <a href="https://wa.link/dqbma7"
+       target="_blank"
+       class="btn">
+
+       ⚠️ Signaler un problème
+
+    </a>
+
+    <a href="https://www.tiktok.com/@kawaki227"
+       target="_blank"
+       class="btn">
+
+       🎵 TikTok
+
+    </a>
+
+  </div>
+
+  <!-- INSCRIPTION -->
+  <section class="register-box">
+
+    <h2>🔥 Inscrire son compte 🔥</h2>
+
+    <form id="registerForm">
+
+      <!-- NOM -->
+      <input type="text"
+             id="name"
+             placeholder="Nom du joueur"
+             required>
+
+      <!-- UID -->
+      <input type="text"
+             id="uid"
+             placeholder="UHD ID"
+             required>
+
+      <!-- LEVEL -->
+      <input type="text"
+             id="level"
+             placeholder="Niveau"
+             required>
+
+      <!-- RANK -->
+      <select id="rank" required>
+
+        <option value="">
+          Choisir un rang
+        </option>
+
+        <option>BRONZE</option>
+        <option>ARGENT</option>
+        <option>OR</option>
+        <option>PLATINE</option>
+        <option>DIAMANT</option>
+        <option>Héroïque</option>
+        <option>ÉLITE Héroïque</option>
+        <option>MAÎTRE</option>
+        <option>MAÎTRE ÉLITE</option>
+        <option>GRAND MASTER</option>
+
+      </select>
+
+      <!-- UHD CODE -->
+      <input type="text"
+             id="code"
+             placeholder="UHD Code"
+             required>
+
+      <!-- PASSWORD -->
+      <input type="password"
+             id="password"
+             placeholder="Mot de passe secret"
+             required>
+
+      <!-- DESCRIPTION -->
+      <input type="text"
+             id="description"
+             placeholder="Description du joueur">
+
+      <!-- TIKTOK -->
+      <input type="text"
+             id="tiktok"
+             placeholder="TikTok">
+
+      <!-- WHATSAPP -->
+      <input type="text"
+             id="whatsapp"
+             placeholder="WhatsApp">
+
+      <!-- PHOTO -->
+      <label for="photo"
+             class="upload-box">
+
+        📸 Choisir une photo pour ton profil
+
+      </label>
+
+      <input type="file"
+             id="photo"
+             accept="image/*">
+
+      <!-- PREVIEW -->
+      <img id="preview"
+           src=""
+           alt="Preview">
+
+      <!-- BUTTON -->
+      <button type="submit">
+
+        🚀 Envoyer
+
+      </button>
+
+    </form>
+
+    <!-- MESSAGE -->
+    <p id="message"></p>
+
+  </section>
+
+  <!-- JOUEURS -->
+  <section class="players">
+
+    <h2>🔥 Joueurs FF 🔥</h2>
+
+    <!-- SEARCH -->
+    <input type="text"
+           id="search"
+           placeholder="🔎 Rechercher un joueur...">
+
+    <!-- PLAYERS -->
+    <div id="playersContainer"></div>
+
+  </section>
+
+  <!-- MUSIC -->
+  <audio autoplay
+         loop
+         controls
+         id="music">
+
+    <source src="music.mp3"
+            type="audio/mpeg">
+
+  </audio>
+
+  <!-- PLAYERS DATA -->
+  <script src="players.js"></script>
+
+  <!-- MAIN SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
