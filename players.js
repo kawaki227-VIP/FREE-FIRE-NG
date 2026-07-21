@@ -13,7 +13,7 @@ const players = [
   },
 
   {
-    name: "Ⓥᴷᴬᵂᴬᴷᴵ²²7♨︎",
+    name: "²²⁷᭄Ｋａｗａｋｉ 么",
     uid: "7689336263",
     level: "64",
     rank: "Heroic",
@@ -34,6 +34,30 @@ const players = [
     tiktok: "https://www.tiktok.com/@7.anass.2.0",
     whatsapp: "+22777028748",
     image: "https://files.catbox.moe/buil00.jpg"
+  },
+    
+      {
+    name: "²²⁷᭄Ｂｏｒｕｔｏ么",
+    uid: "13003269450",
+    level: "58",
+    rank: "Héroïque",
+    code: "#FFHUDT6O3jStjtBVPo7eO",
+    password: "Boruto.227",
+    tiktok: "@Boruto 227ff",
+    whatsapp: "+22788218275",
+    image: "https://files.catbox.moe/6fed9b.jpg"
+  },
+  
+    {
+    name: "²²⁷᭄ＫＩＲＡㅤ么",
+    uid: "12889224868",
+    level: "60",
+    rank: "MAÎTRE",
+    code: "#FFHUDT6O3jSwsZ/tPo7eO",
+    password: "Soudesse7@",
+    tiktok: "privé",
+    whatsapp: "privé",
+    image: "https://files.catbox.moe/7oyhhv.jpg"
   }
 
 ];
