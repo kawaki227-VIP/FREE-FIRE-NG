@@ -58,6 +58,18 @@ const players = [
     tiktok: "privé",
     whatsapp: "privé",
     image: "https://files.catbox.moe/7oyhhv.jpg"
-  }
+  },
+  
+    {
+    name: "²²⁷᭄ＯＭＡＲㅤ么",
+    uid: "11480963380",
+    level: "56",
+    rank: "ÉLITE Héroïque",
+    code: "#FFHUDT6O3jIA8CGtPo7eM",
+    password: "227omar",
+    tiktok: "omar.saidou.ff",
+    whatsapp: "90646442",
+    image: "https://files.catbox.moe/ecruws.jpg"
+  }  
 
 ];
