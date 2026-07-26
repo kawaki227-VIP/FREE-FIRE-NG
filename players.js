@@ -68,8 +68,20 @@ const players = [
     code: "#FFHUDT6O3jIA8CGtPo7eM",
     password: "227omar",
     tiktok: "omar.saidou.ff",
-    whatsapp: "90646442",
+    whatsapp: "+22790646442",
     image: "https://files.catbox.moe/ecruws.jpg"
-  }  
+  },
+  
+    {
+    name: "Abdallah",
+    uid: "11060158215",
+    level: "51",
+    rank: "ÉLITE Héroïque",
+    code: "#FFHUDT6O3jL9RDlhPo7eN",
+    password: "@123Aracno",
+    tiktok: "nig aracno",
+    whatsapp: "+22787653752",
+    image: "https://files.catbox.moe/rkxu2i.jpg"
+  }        
 
 ];
