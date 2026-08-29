@@ -82,6 +82,18 @@ const players = [
     tiktok: "nig aracno",
     whatsapp: "+22787653752",
     image: "https://files.catbox.moe/rkxu2i.jpg"
-  }        
+  }
+  
+    {
+    name: "²²⁷kirito",
+    uid: "14681566772",
+    level: "56",
+    rank: "MAÎTRE",
+    code: "#FFHUDT6O3jUd7f2tPo7eO",
+    password: "ismael7723",
+    tiktok: "Kirito003",
+    whatsapp: "+22777234990",
+    image: "https://files.catbox.moe/hlz3pu.jpg"
+  }                  
 
 ];
