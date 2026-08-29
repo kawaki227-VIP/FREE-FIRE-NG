@@ -82,7 +82,7 @@ const players = [
     tiktok: "nig aracno",
     whatsapp: "+22787653752",
     image: "https://files.catbox.moe/rkxu2i.jpg"
-  }
+  },
   
     {
     name: "²²⁷kirito",
