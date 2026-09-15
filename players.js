@@ -9,7 +9,7 @@ const players = [
     password: "7838",
     tiktok: "https://www.tiktok.com/@tik_yacine_ff?_r=1&_t=ZG-96HEHNr9QHp",
     whatsapp: "+22781617838",
-    image: "https://files.catbox.moe/njttgj.jpg"
+    image: "https://files.catbox.moe/cwvvha.jpg"
   },
 
   {

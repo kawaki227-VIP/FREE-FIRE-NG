@@ -21,7 +21,7 @@ let fontSize=14,drops=[];
 function resizeMatrix(){canvas.width=innerWidth;canvas.height=innerHeight;drops=Array(Math.ceil(canvas.width/fontSize)).fill(1)}
 resizeMatrix();addEventListener("resize",resizeMatrix);
 const chars="01 AURA K227 FF HACKER 227";
-function matrix(){ctx.fillStyle="rgba(0,0,0,.035)";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#55ddff";ctx.font=fontSize+"px monospace";for(let x=0;x<drops.length;x++){const t=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(t,x*fontSize,drops[x]*fontSize);if(drops[x]*fontSize>canvas.height&&Math.random()>.975)drops[x]=0;drops[x]++}}setInterval(matrix,38);
+function matrix(){ctx.fillStyle="rgba(0,0,0,.075)";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#38d9ff";ctx.font=fontSize+"px monospace";for(let x=0;x<drops.length;x++){const t=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(t,x*fontSize,drops[x]*fontSize);if(drops[x]*fontSize>canvas.height&&Math.random()>.975)drops[x]=0;drops[x]++}}setInterval(matrix,38);
 
 function clock(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("fr-FR")}clock();setInterval(clock,1000);
 
@@ -88,3 +88,47 @@ form.addEventListener("submit",function(e){
   message.textContent="🔥 Reviens dans 24h ou moins 🙂\n\nkawaki227 va enregistrer votre compte sur le site.\n\nMerci de patienter 😎";form.reset();preview.style.display="none";upload.classList.remove("scanned");upload.textContent="📸 CHOISIR UNE PHOTO POUR TON PROFIL";toast("✓ REGISTRATION SENT");
  }).catch(()=>{message.textContent="❌ Erreur d'envoi";toast("✕ ERREUR D'ENVOI")});
 });
+
+// SMART MUSIC SYSTEM
+const music = document.getElementById("music");
+const musicToggle = document.getElementById("musicToggle");
+let musicStarted = false;
+
+function updateMusicButton(){
+  if(!musicToggle) return;
+  const on = !music.paused;
+  musicToggle.textContent = on ? "🎵 MUSIC ON" : "🔇 MUSIC OFF";
+  musicToggle.classList.toggle("on", on);
+}
+function startMusic(){
+  if(!music || musicStarted) return;
+  const p = music.play();
+  if(p && p.then) p.then(()=>{musicStarted=true;updateMusicButton()}).catch(updateMusicButton);
+}
+function tryStartMusic(){
+  startMusic();
+  if(musicStarted){
+    document.removeEventListener("pointerdown",tryStartMusic);
+    document.removeEventListener("touchstart",tryStartMusic);
+    document.removeEventListener("keydown",tryStartMusic);
+  }
+}
+if(music){
+  music.volume=.85;
+  music.addEventListener("play",()=>{musicStarted=true;updateMusicButton()});
+  music.addEventListener("pause",updateMusicButton);
+  updateMusicButton();
+  setTimeout(startMusic,700);
+  document.addEventListener("pointerdown",tryStartMusic,{passive:true});
+  document.addEventListener("touchstart",tryStartMusic,{passive:true});
+  document.addEventListener("keydown",tryStartMusic);
+  musicToggle.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    if(music.paused){
+      music.play().then(()=>{musicStarted=true;updateMusicButton()}).catch(()=>toast("🔇 Active la musique avec une nouvelle pression"));
+    }else{
+      music.pause();
+      updateMusicButton();
+    }
+  });
+}
