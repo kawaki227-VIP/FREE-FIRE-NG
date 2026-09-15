@@ -3,7 +3,7 @@ const players = [
   {
     name: "ᴹᴿ᭄Ｙａｃｉｎｅㅤ么",
     uid: "8915217044",
-    level: "63",
+    level: "66",
     rank: "maître élite",
     code: "#FFHUDT6O3jD8O+8tPo7eP",
     password: "7838",
@@ -15,13 +15,13 @@ const players = [
   {
     name: "²²⁷᭄Ｋａｗａｋｉ 么",
     uid: "7689336263",
-    level: "64",
+    level: "65",
     rank: "Heroic",
     code: "#FFHUDT6O3j+Y8ZJhPo7eN",
     password: "9701",
     tiktok: "https://www.tiktok.com/@kawaki227.ne",
     whatsapp: "+22781289418",
-    image: "https://files.catbox.moe/lu5q6t.jpg"
+    image: "https://files.catbox.moe/3vae80.jpg"
   },
 
   {
@@ -66,7 +66,7 @@ const players = [
     level: "56",
     rank: "ÉLITE Héroïque",
     code: "#FFHUDT6O3jIA8CGtPo7eM",
-    password: "227omar",
+    password: "6497",
     tiktok: "omar.saidou.ff",
     whatsapp: "+22790646442",
     image: "https://files.catbox.moe/ecruws.jpg"
