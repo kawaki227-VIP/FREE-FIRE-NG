@@ -94,6 +94,30 @@ const players = [
     tiktok: "Kirito003",
     whatsapp: "+22777234990",
     image: "https://files.catbox.moe/hlz3pu.jpg"
-  }                  
+  },
+  
+    {
+    name: "²²⁷᭄ＪＯＫＥＲㅤ么",
+    uid: "13410711084",
+    level: "60",
+    rank: "MAÎTRE ÉLITE",
+    code: "#FFHUDT6O3jaKaqH5Po7eO",
+    password: "JOKER[227]",
+    tiktok: "PRIVÉ",
+    whatsapp: "+22781408190",
+    image: "https://files.catbox.moe/527ccz.jpg"
+  },
+  
+    {
+    name: "ᵀᵒᵖ〆KASUTORA",
+    uid: "13740920798",
+    level: "58",
+    rank: "MAÎTRE",
+    code: "#FFHUDT6O3jR9oXoFPo7eO",
+    password: "Mohamed2010",
+    tiktok: "PRIVÉ",
+    whatsapp: "+22781764505",
+    image: "https://files.catbox.moe/qaondp.jpg"
+  }                                                                                          
 
 ];
