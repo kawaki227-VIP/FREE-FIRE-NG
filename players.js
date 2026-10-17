@@ -118,6 +118,30 @@ const players = [
     tiktok: "PRIVÉ",
     whatsapp: "+22781764505",
     image: "https://files.catbox.moe/qaondp.jpg"
-  }                                                                                          
+  },
+  
+                                                                                   {
+    name: "༒ʙʀᴀɪᴍꜱ༒AURA",
+    uid: "11385819984",
+    level: "47",
+    rank: "Héroïque",
+    code: "#FFHUDT6O3jIrIQg9Po7eO",
+    password: "ibra.1234",
+    tiktok: "https://www.tiktok.com/@braims227aura?_r=1&_t=ZS-9AdSPQfRQjF",
+    whatsapp: "https://whatsapp.com/channel/0029Vb8X4REICVfhzwtFTH33",
+    image: "https://files.catbox.moe/e4nan1.jpg
+  },
+  
+   {
+    name: "Ꭰꫝʀᴋㅤ VORTEX",
+    uid: "12772409875",
+    level: "59",
+    rank: "MAÎTRE",
+    code: "Huzcuud28164jzjdh",
+    password: "Sawadogo(209)",
+    tiktok: "Darkvotex09",
+    whatsapp: "0151636175",
+    image: "https://files.catbox.moe/ijlo3r.jpg"
+  }                                                                                                      
 
 ];
