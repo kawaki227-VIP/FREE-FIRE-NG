@@ -129,7 +129,7 @@ const players = [
     password: "ibra.1234",
     tiktok: "https://www.tiktok.com/@braims227aura?_r=1&_t=ZS-9AdSPQfRQjF",
     whatsapp: "https://whatsapp.com/channel/0029Vb8X4REICVfhzwtFTH33",
-    image: "https://files.catbox.moe/e4nan1.jpg
+    image: "https://files.catbox.moe/e4nan1.jpg"
   },
   
    {
