@@ -142,6 +142,17 @@ const players = [
     tiktok: "Darkvotex09",
     whatsapp: "0151636175",
     image: "https://files.catbox.moe/ijlo3r.jpg"
+  },
+  
+   {
+    name: "乂ＳＵＰＲ乇Ｍ†",
+    uid: "2753013110",
+    level: "67",
+    rank: "MAÎTRE",
+    code: "#FFHUDT6O3joh6NClPo7eO",
+    password: "0600",
+    tiktok: "ns.f_b_i0",
+    whatsapp: "+22792927592",
+    image: "https://files.catbox.moe/urslbf.jpg"
   }                                                                                                      
-
 ];
