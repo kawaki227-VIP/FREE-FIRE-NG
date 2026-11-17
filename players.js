@@ -15,9 +15,9 @@ const players = [
   {
     name: "²²⁷᭄Ｋａｗａｋｉ 么",
     uid: "7689336263",
-    level: "65",
+    level: "66",
     rank: "Heroic",
-    code: "#FFHUDT6O3j+Y8ZJhPo7eN",
+    code: "#FFHUDT6O3j+Y8ZJhPo7eP",
     password: "9701",
     tiktok: "https://www.tiktok.com/@kawaki227.ne",
     whatsapp: "+22781289418",
@@ -154,5 +154,17 @@ const players = [
     tiktok: "ns.f_b_i0",
     whatsapp: "+22792927592",
     image: "https://files.catbox.moe/urslbf.jpg"
-  }                                                                                                      
+  },
+  
+   {
+    name: "SIR༒ALPHA Ⓥ",
+    uid: "10258495615",
+    level: "65",
+    rank: "MAÎTRE ÉLITE",
+    code: "#FFHUDT6O3jE8ZqSBPo7eN",
+    password: "9756",
+    tiktok: "🌸SIR ALPHA FF🌸",
+    whatsapp: "+22797567693",
+    image: "https://files.catbox.moe/dmbh5f.jpg"
+  }                                                                                                                             
 ];
